@@ -53,32 +53,32 @@ ENV PATH=$HOME/.local/bin:/usr/games:$PATH
 USER root
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
-        zip \
-        unzip \
-        bash-completion \
-        build-essential \
-        ninja-build \
-        htop \
-        iputils-ping \
-        jq \
-        less \
-        locales \
-        man-db \
-        nano \
-        ripgrep \
-        software-properties-common \
-        sudo \
-        stow \
-        time \
-        emacs-nox \
-        vim \
-        multitail \
-        lsof \
-        ssl-cert \
-        fish \
-        zsh \
-        curl \
-        apt-utils \
+    zip \
+    unzip \
+    bash-completion \
+    build-essential \
+    ninja-build \
+    htop \
+    iputils-ping \
+    jq \
+    less \
+    locales \
+    man-db \
+    nano \
+    ripgrep \
+    software-properties-common \
+    sudo \
+    stow \
+    time \
+    emacs-nox \
+    vim \
+    multitail \
+    lsof \
+    ssl-cert \
+    fish \
+    zsh \
+    curl \
+    apt-utils \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 # ARG base
 # FROM ${base}
@@ -124,8 +124,8 @@ ENV GOPATH=$HOME/go-packages
 ENV GOROOT=$HOME/go
 ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 RUN curl -fsSL https://dl.google.com/go/go$GO_VERSION.linux-amd64.tar.gz | tar xzs && \
-# install VS Code Go tools for use with gopls as per https://github.com/golang/vscode-go/blob/master/docs/tools.md
-# also https://github.com/golang/vscode-go/blob/27bbf42a1523cadb19fad21e0f9d7c316b625684/src/goTools.ts#L139
+    # install VS Code Go tools for use with gopls as per https://github.com/golang/vscode-go/blob/master/docs/tools.md
+    # also https://github.com/golang/vscode-go/blob/27bbf42a1523cadb19fad21e0f9d7c316b625684/src/goTools.ts#L139
     go install -v github.com/uudashr/gopkgs/cmd/gopkgs@v2 && \
     go install -v github.com/ramya-rao-a/go-outline@latest && \
     go install -v github.com/cweill/gotests/gotests@latest && \
@@ -138,5 +138,5 @@ RUN curl -fsSL https://dl.google.com/go/go$GO_VERSION.linux-amd64.tar.gz | tar x
     go install -v honnef.co/go/tools/cmd/staticcheck@latest && \
     sudo rm -rf $GOPATH/src $GOPATH/pkg $HOME/.cache/go $HOME/.cache/go-build && \
     printf '%s\n' 'export GOPATH=/workspace/go' \
-                  'export PATH=$GOPATH/bin:$PATH' > $HOME/.bashrc.d/300-go
+    'export PATH=$GOPATH/bin:$PATH' > $HOME/.bashrc.d/300-go
 
